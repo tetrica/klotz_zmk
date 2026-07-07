@@ -424,7 +424,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
-            tap-ms = <120>;
+            tap-ms = <80>;
         };
     };
 
@@ -447,7 +447,7 @@
                                                 &lt 1 ESCAPE       &lt 5 SPACE  &lt 3 ENTER  &lt 2 BACKSPACE
             >;
 
-            sensor-bindings = <&msc_scroll>, <&inc_dec_kp RIGHT LEFT>;
+            sensor-bindings = <&msc_scroll>, <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
         nav_layer {
