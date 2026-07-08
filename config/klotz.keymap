@@ -447,7 +447,9 @@
                                                 &lt 1 ESCAPE       &lt 5 SPACE  &lt 3 ENTER  &lt 2 BACKSPACE
             >;
 
-            sensor-bindings = <&msc_scroll>, <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings =
+                <&inc_dec_kp PG_UP PAGE_DOWN>,
+                <&inc_dec_kp LEFT_ARROW BACKSPACE>;
         };
 
         nav_layer {
@@ -458,9 +460,7 @@
                                                                                 &trans                    &trans                          &kp SPACE         &kp BACKSPACE
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp PG_UP PAGE_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+            sensor-bindings = <&msc_scroll>, <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
         num_layer {
