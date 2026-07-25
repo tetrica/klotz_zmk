@@ -19,3 +19,24 @@
 &left_encoder {
 	status = "okay";
 };
+
+/*
+ * Central (left) side of the trackpad split: receive the peripheral's pointing
+ * events and feed them to an input-listener (turns them into HID mouse reports).
+ */
+/ {
+	split_inputs {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		trackpad_split: trackpad_split@0 {
+			compatible = "zmk,input-split";
+			reg = <0>;
+		};
+	};
+
+	trackpad_listener {
+		compatible = "zmk,input-listener";
+		device = <&trackpad_split>;
+	};
+};

@@ -5,6 +5,7 @@
  */
 
 #include "klotz.dtsi"
+#include <dt-bindings/gpio/gpio.h>
 
 &default_transform {
 	col-offset = <5>;
@@ -22,4 +23,54 @@
 
 &right_encoder {
 	status = "okay";
+};
+
+/*
+ * Azoteq TPS43 trackpad on the RIGHT (peripheral) half. Shares the Pro-Micro
+ * I2C bus (SDA/SCL); RDY -> D0, RST -> D1; power off 3.3V. KLOTZ free pins are
+ * D0/D1/D2/D3/D4/D5/D21 (matrix uses D6-D10/D14-D16/D18, encoder D19/D20).
+ * Bare pad (no glass): chip-default ATI gain, balanced filtering. Vendored
+ * driver in drivers/input/. Requires ZMK v0.3 (input-split) - see config/west.yml.
+ */
+&pro_micro_i2c {
+	status = "okay";
+
+	trackpad: trackpad@74 {
+		compatible = "azoteq,tps43";
+		reg = <0x74>;
+		status = "okay";
+
+		rdy-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
+		rst-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>;
+
+		enable-power-management;
+		sensitivity = <150>;            /* cursor speed %; 100 = 1:1 */
+		filter-settings = <0x0B>;       /* IIR+MAV+ALP dynamic (raise to 0x0F if jittery) */
+		scroll-sensitivity = <15>;
+		scroll-initial-distance = <4>;  /* shared w/ two-finger-tap; too low steals right-click */
+
+		single-tap;       /* 1-finger tap -> left click  */
+		two-finger-tap;   /* 2-finger tap -> right click */
+		press-and-hold;   /* hold 1 finger still -> drag */
+		hold-time-ms = <120>;
+		scroll;           /* 2-finger scroll             */
+
+		/* Orientation: tune after flashing to match your mounting.
+		 * toggle invert-x / invert-y / switch-xy / invert-scroll-x / invert-scroll-y */
+		invert-x;
+	};
+};
+
+/ {
+	/* Forward this peripheral's pointing events to the central over the split. */
+	split_inputs {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		trackpad_split: trackpad_split@0 {
+			compatible = "zmk,input-split";
+			reg = <0>;
+			device = <&trackpad>;
+		};
+	};
 };
