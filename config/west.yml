@@ -5,7 +5,10 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.2
+      # Bumped v0.2 -> v0.3: split-peripheral pointing (zmk,input-split) needed
+      # for the TPS43 trackpad only exists in v0.3+. The CI workflow ref in
+      # .github/workflows/build.yml must match this tag.
+      revision: v0.3
       import: app/west.yml
   self:
     path: config

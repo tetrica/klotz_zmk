@@ -1,0 +1,163 @@
+properties:
+  rdy-gpios:
+    type: phandle-array
+    required: false
+    description: GPIO пин для сигнала прерывания RDY (Ready)
+
+  rst-gpios:
+    type: phandle-array
+    required: false
+    description: GPIO пин для сигнала сброса RST (Reset)
+
+  filter-settings:
+    type: int
+    default: 0x0F
+    description: |
+      Определения битов:
+      - Бит 0 (0x01): IIR-фильтр - фильтр с бесконечной импульсной характеристикой для
+        сглаживание координат. Уменьшает высокочастотный шум и дрожание.
+      - Бит 1 (0x02): MAV-фильтр - фильтр скользящего среднего для определения координат
+        стабилизация. Удаляет выбросы и усредняет последние измерения.
+      - Бит 2 (0x04): Выбор IIR - При установке используется фиксированный коэффициент IIR.
+        Если флажок снят (по умолчанию), используется динамический IIR, который адаптируется к скорости движения.
+      - Бит 3 (0x08): Фильтр подсчета ALP - Адаптивный фильтр процесса обучения
+        для подавления шума. Отфильтровывает нежелательные события касания на основе изученных шаблонов.
+      
+      Общие конфигурации:
+      - 0x0B: включены IIR + MAV + ALP, динамический IIR.
+        Хороший баланс стабильности и отзывчивости.
+      - 0x0F (по умолчанию): Включены все фильтры, включая фиксированный выбор IIR.
+        Максимальное сглаживание, может привести к увеличению задержки.
+      - 0x03: только IIR + MAV. Базовое сглаживание без фильтрации ALP.
+      - 0x01: только IIR. Минимальная фильтрация, наименьшая задержка.
+      - 0x00: Все фильтры отключены. Исходные данные датчика могут содержать помехи.
+      
+      Значения могут быть объединены с помощью побитового ИЛИ (например, 0x01 | 0x02 = 0x03).
+
+  sensitivity:
+    type: int
+    required: false
+    default: 100
+    description: Процент чувствительности касания (100 = нормальная, больше = более чувствительная)
+
+  scroll-sensitivity:
+    type: int
+    required: false
+    default: 50
+    description: Процент чувствительности прокрутки (50 = нормальная, больше = более чувствительная)
+
+  scroll-initial-distance:
+    type: int
+    required: false
+    default: 0
+    description: |
+      Distance in px the two fingers must travel before the SCROLL gesture
+      engages (reg 0x06C8). Lower = scroll starts on slighter movement. 0 leaves
+      the chip default.
+
+  ati-target:
+    type: int
+    required: false
+    default: 0
+    description: |
+      ATI target (reg 0x056D): the touch-detection gain the chip auto-tunes to.
+      Higher = more sensitive, to compensate for a glass/overlay over the pad
+      (~500 is Azoteq's reference; try 700-900 under glass). Writing it re-runs
+      AUTO_ATI. 0 leaves the chip default. Too high can cause ATI errors.
+
+  enable-power-management:
+    type: boolean
+    required: false
+    description: Включить автоматическое управление питанием (приостановка/возобновление)
+
+  single-tap:
+    type: boolean
+    required: false
+    description: Включить жест одиночного касания
+
+  two-finger-tap:
+    type: boolean
+    required: false
+    description: Включить жест касания двумя пальцами
+
+  scroll:
+    type: boolean
+    required: false
+    description: Включить жест прокрутки
+
+  swipes:
+    type: boolean
+    required: false
+    description: Включить обработку свайпов. При включении отслеживаются свайпы тремя пальцами
+
+  three-finger-drag:
+    type: boolean
+    required: false
+    description: |
+      While three or more fingers touch, hold the MIDDLE mouse button and let the
+      cursor move (a quick 3-finger tap = middle click; a 3-finger hold + move =
+      middle-drag, e.g. rotate/pan a 3D view in a slicer). Automatically raises
+      max-multitouches to >=3 so the chip reports data for 3 fingers. Do not
+      enable together with `swipes` (both act on 3-finger input).
+
+  max-multitouches:
+    type: int
+    required: false
+    default: 0
+    description: |
+      Max simultaneous touches written to reg 0x066A (0 = leave chip default,
+      which is low ~2). Above this count the chip raises TOO_MANY_FINGERS and
+      clears XY, so raise it (>=3) to use 3-finger gestures.
+
+  switch-xy:
+    type: boolean
+    required: false
+    description: Поменять местами оси X и Y
+
+  press-and-hold:
+    type: boolean
+    required: false
+    description: Включить жест нажатия и удержания
+
+  hold-time-ms:
+    type: int
+    required: false
+    default: 300
+    description: |
+      Press-and-hold trigger delay in ms (written to reg 0x06BD). The drag
+      gesture fires after TapTime + hold-time-ms, so lower = drag engages
+      sooner. Only applied when press-and-hold is enabled.
+
+  tap-drag:
+    type: boolean
+    required: false
+    description: |
+      Tap-then-hold drag ("double-tap-drag"): after a single tap, a fresh touch
+      landing within tap-drag-window-ms grabs (holds the left button) and drags
+      until all fingers lift. Alternative to press-and-hold that triggers
+      instantly instead of waiting out the chip's hold timer.
+
+  tap-drag-window-ms:
+    type: int
+    required: false
+    default: 300
+    description: |
+      Max time (ms) between the single tap and the follow-up touch for tap-drag
+      to engage. Larger = more forgiving but more likely to turn a quick
+      double-tap into a drag.
+
+  invert-x:
+    type: boolean
+    description: Если присутствует, инвертировать значения координаты X.
+      
+  invert-y:
+    type: boolean
+    description: Если присутствует, инвертировать значения координаты Y.
+      
+  invert-scroll-x:
+    type: boolean
+    description: Если присутствует, инвертировать значения скролла по X.
+            
+  invert-scroll-y:
+    type: boolean
+    description: Если присутствует, инвертировать значения скролла по Y.
