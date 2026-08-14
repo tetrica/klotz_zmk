@@ -57,7 +57,7 @@
 
 		/* Orientation: tune after flashing to match your mounting.
 		 * toggle invert-x / invert-y / switch-xy / invert-scroll-x / invert-scroll-y */
-		invert-y;
+		switch-xy;
 	};
 };
 
