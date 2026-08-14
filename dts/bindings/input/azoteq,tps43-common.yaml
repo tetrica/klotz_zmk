@@ -103,7 +103,7 @@ properties:
   max-multitouches:
     type: int
     required: false
-    default: 0
+    default: 3
     description: |
       Max simultaneous touches written to reg 0x066A (0 = leave chip default,
       which is low ~2). Above this count the chip raises TOO_MANY_FINGERS and
@@ -111,7 +111,7 @@ properties:
 
   switch-xy:
     type: boolean
-    required: false
+    required: true
     description: Поменять местами оси X и Y
 
   press-and-hold:
@@ -139,7 +139,7 @@ properties:
 
   tap-drag-window-ms:
     type: int
-    required: false
+    required: true
     default: 300
     description: |
       Max time (ms) between the single tap and the follow-up touch for tap-drag
