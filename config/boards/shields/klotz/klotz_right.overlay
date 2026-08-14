@@ -51,9 +51,8 @@
 
 		single-tap;       /* 1-finger tap -> left click  */
 		two-finger-tap;   /* 2-finger tap -> right click */
-		three-finger-tap; /* 3-finter tap -> clicky */
 		press-and-hold;   /* hold 1 finger still -> drag */
-		hold-time-ms = <120>;
+		hold-time-ms = <150>;
 		scroll;           /* 2-finger scroll             */
 
 		/* Orientation: tune after flashing to match your mounting.
