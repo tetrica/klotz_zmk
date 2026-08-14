@@ -46,11 +46,12 @@
 		enable-power-management;
 		sensitivity = <150>;            /* cursor speed %; 100 = 1:1 */
 		filter-settings = <0x0B>;       /* IIR+MAV+ALP dynamic (raise to 0x0F if jittery) */
-		scroll-sensitivity = <15>;
+		scroll-sensitivity = <10>;
 		scroll-initial-distance = <4>;  /* shared w/ two-finger-tap; too low steals right-click */
 
 		single-tap;       /* 1-finger tap -> left click  */
 		two-finger-tap;   /* 2-finger tap -> right click */
+		three-finger-tap; /* 3-finter tap -> clicky */
 		press-and-hold;   /* hold 1 finger still -> drag */
 		hold-time-ms = <120>;
 		scroll;           /* 2-finger scroll             */
