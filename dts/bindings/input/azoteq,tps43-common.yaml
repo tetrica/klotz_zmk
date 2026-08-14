@@ -43,7 +43,7 @@ properties:
   scroll-sensitivity:
     type: int
     required: false
-    default: 50
+    default: 25
     description: Процент чувствительности прокрутки (50 = нормальная, больше = более чувствительная)
 
   scroll-initial-distance:
@@ -111,7 +111,7 @@ properties:
 
   switch-xy:
     type: boolean
-    required: true
+    required: false
     description: Поменять местами оси X и Y
 
   press-and-hold:
