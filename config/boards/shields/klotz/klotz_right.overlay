@@ -51,6 +51,7 @@
 
 		single-tap;       /* 1-finger tap -> left click  */
 		two-finger-tap;   /* 2-finger tap -> right click */
+		three_finger_drag;
 		press-and-hold;   /* hold 1 finger still -> drag */
 		hold-time-ms = <150>;
 		scroll;           /* 2-finger scroll             */
