@@ -43,7 +43,7 @@ properties:
   scroll-sensitivity:
     type: int
     required: false
-    default: 25
+    default: 50
     description: Процент чувствительности прокрутки (50 = нормальная, больше = более чувствительная)
 
   scroll-initial-distance:
@@ -139,7 +139,7 @@ properties:
 
   tap-drag-window-ms:
     type: int
-    required: true
+    required: false
     default: 300
     description: |
       Max time (ms) between the single tap and the follow-up touch for tap-drag
