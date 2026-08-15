@@ -447,7 +447,7 @@
                                                 &lt 1 ESCAPE       &lt 5 SPACE  &lt 3 ENTER  &lt 2 BACKSPACE
             >;
 
-            sensor-bindings = <&msc_scroll>, <&inc_dec_kp LEFT_ARROW BACKSPACE>;
+            sensor-bindings = <&msc_scroll>, <&inc_dec_kp DELETE BACKSPACE>;
         };
 
         nav_layer {
