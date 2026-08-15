@@ -524,9 +524,7 @@
                                           &trans        &trans          &mkp LCLK  &mkp RCLK
             >;
 
-            sensor-bindings =
-                <&encoder_alt_tab>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
+            sensor-bindings = <&encoder_alt_tab>, <&encoder_alt_tab>;
         };
 
         Base_arrows {
