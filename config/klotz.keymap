@@ -445,7 +445,6 @@
 &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G        &kp M        &hmr RIGHT_SHIFT N  &hmr RCTRL E  &hmr LEFT_ALT I  &hmr RIGHT_GUI O
 &kp Z            &kp X            &kp C         &kp D              &kp V        &kp K        &kp H               &kp COMMA     &kp PERIOD       &hmr QUESTION SLASH
                                                 &lt 1 ESCAPE       &lt 5 SPACE  &lt 3 ENTER  &lt 2 BACKSPACE
-&kp C_MUTE                                                                                                       &kp C_PLAY_PAUSE
             >;
 
             sensor-bindings = <&msc_scroll>, <&inc_dec_kp LEFT_ARROW BACKSPACE>;
@@ -457,7 +456,6 @@
 &kp RGUI                      &kp LALT                   &kp LCTRL              &kp LSHFT                 &kp PRINTSCREEN                 &caps_word        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW     &kp RIGHT_ARROW
 &hml TILDE GRAVE              &hml EXCLAMATION NUMBER_1  &hml AT_SIGN NUMBER_2  &hml HASH NUMBER_3        &trans                          &kp INSERT        &kp HOME        &kp PAGE_DOWN   &kp PG_UP        &kp END
                                                                                 &trans                    &trans                          &kp SPACE         &kp BACKSPACE
-&trans                                                                                                           &trans
             >;
 
             sensor-bindings =
@@ -477,7 +475,6 @@
 &kp SEMICOLON  &kp N4  &kp N5         &kp N6                           &kp EQUAL        &kp RBRC   &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_GUI
 &kp GRAVE      &kp N1  &kp N2         &kp N3                           &kp KP_MULTIPLY  &kp DOT    &macro_up        &trans     &macro_down    &trans
                                       &hml RIGHT_PARENTHESIS NUMBER_0  &kp MINUS        &kp SPACE  &skq RSHFT
-&trans                                                                                                           &trans
             >;
 
             sensor-bindings =
@@ -497,7 +494,6 @@
 &kp COLON       &kp DLLR       &kp PRCNT               &kp CARET                                &hml EQUAL PLUS  &trans     &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_GUI
 &kp TILDE       &kp EXCL       &kp AT                  &kp HASH                                 &kp PIPE         &trans     &trans           &trans     &trans         &trans
                                                        &kp RIGHT_PARENTHESIS                    &kp UNDER        &kp SPACE  &skq RSHFT
-&trans                                                                                                           &trans
             >;
 
             sensor-bindings = <&encoder_alt_tab>, <&inc_dec_kp SPACE BACKSPACE>;
@@ -515,7 +511,6 @@
 &kp LEFT_GUI  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &trans  &kp BSPC    &kp F4      &kp F5  &kp F6  &kp F11
 &bootloader   &trans        &trans     &trans          &trans  &kp ESC     &kp F1      &kp F2  &kp F3  &kp F12
                                        &trans          &trans  &skq LCTRL  &skq RSHFT
-&trans                                                                                                           &trans
             >;
 
             sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -527,11 +522,10 @@
 &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &trans          &mkp MB1   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
 &bt BT_NXT    &bt BT_PRV    &trans        &trans        &bt BT_CLR_ALL  &mkp MCLK  &trans          &trans          &trans        &trans
                                           &trans        &trans          &mkp LCLK  &mkp RCLK
-&trans                                                                                                           &trans
             >;
 
             sensor-bindings =
-                <&inc_dec_kp PG_UP PAGE_DOWN>,
+                <&encoder_alt_tab>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
@@ -542,7 +536,6 @@
 &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G        &kp M        &hmr RIGHT_SHIFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RIGHT_GUI O
 &kp Z            &kp X            &kp C         &kp D              &kp V        &kp K        &kp H               &kp COMMA     &kp PERIOD        &hmr QUESTION SLASH
                                                 &lt 1 ESCAPE       &lt 5 SPACE  &lt 3 ENTER  &lt 2 BACKSPACE
-&kp C_MUTE                                                                                                       &kp C_PLAY_PAUSE
             >;
 
             sensor-bindings =
