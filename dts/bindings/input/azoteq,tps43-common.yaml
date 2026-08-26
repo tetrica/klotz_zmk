@@ -57,7 +57,7 @@ properties:
 
   ati-target:
     type: int
-    required: true
+    required: false
     default: 900
     description: |
       ATI target (reg 0x056D): the touch-detection gain the chip auto-tunes to.
