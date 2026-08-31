@@ -13,6 +13,38 @@ KLOTZ is a 34 key column-staggered split keyboard running [ZMK](https://zmk.dev/
 ![KLOTZ layout](/docs/images/KLOTZ_layout.svg)
 ![KLOTZ layout](/docs/images/Keymap.svg)
 
+## KEYMAP MACROS
+
+The macros below are defined in [`config/klotz.keymap`](/config/klotz.keymap).
+
+### Active macros
+
+| Macro | Output | Trigger |
+| --- | --- | --- |
+| `tabcw` | `Alt+Tab` | `W+E` combo or clockwise left encoder rotation on the `SYM`, `fn`, or `adjust_mouse` layer |
+| `tabccw` | `Alt+Shift+Tab` | Counter-clockwise left encoder rotation on the `SYM`, `fn`, or `adjust_mouse` layer |
+| `browser_tab_next` | `Ctrl+Tab` | Clockwise right encoder rotation on the `fn` or `adjust_mouse` layer |
+| `browser_tab_previous` | `Ctrl+Shift+Tab` | Counter-clockwise right encoder rotation on the `fn` or `adjust_mouse` layer |
+| `macro_ctrlz` | `Ctrl+Z` | `Z+X` combo on a base layer |
+| `macro_ctrlshftz` | `Ctrl+Shift+Z` | `Z+X+C` combo on a base layer |
+| `macro_ctrlx` | `Ctrl+X` | `X+C` combo on a base layer |
+| `macro_ctrlc` | `Ctrl+C` | `C+V` combo on a base layer |
+| `macro_ctrlv` | `Ctrl+V` | `V+B` combo on a base layer |
+| `macro_up` | `Ctrl+U` | Physical `M` key on the `num` layer |
+| `macro_down` | `Ctrl+D` | Physical `.` key on the `num` layer |
+
+### Defined but currently unused
+
+| Macro | Programmed output |
+| --- | --- |
+| `macro_esc` | Return to the base layer and send `Escape` |
+| `macro_ctrls` | `Ctrl+S` |
+| `os_hk` | Parameterized `Alt+GUI+Shift` shortcut |
+| `m_set` | Send `M`, followed by `Shift` plus its parameter |
+| `m_jmp` | Send grave accent, followed by `Shift` plus its parameter |
+| `m_paste` | Send double quote, its parameter, and `P` |
+| `m_dkp` | Send its two parameters as consecutive key taps |
+
 
 ## HOW TO USE
 
@@ -26,7 +58,6 @@ KLOTZ is a 34 key column-staggered split keyboard running [ZMK](https://zmk.dev/
 - the keyboard should now appear as a mass storage device
 - drag'n'drop the `klotz_left-nice_nano_v2-zmk.uf2` file from the archive onto the storage device
 - repeat this process with the right half and the `klotz_right-nice_nano_v2-zmk.uf2` file.
-
 
 
 
