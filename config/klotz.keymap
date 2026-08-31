@@ -173,7 +173,13 @@
         tabcw: tabcw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp TAB>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LALT>;
         };
 
         tabccw: tabccw {
@@ -181,9 +187,41 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
+                <&kp LALT>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_release>,
+                <&kp LALT>;
+        };
+
+        browser_tab_next: browser_tab_next {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
                 <&kp LCTRL>,
                 <&macro_tap>,
                 <&kp TAB>,
+                <&macro_release>,
+                <&kp LCTRL>;
+        };
+
+        browser_tab_previous: browser_tab_previous {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LSHFT>,
                 <&macro_release>,
                 <&kp LCTRL>;
         };
@@ -367,6 +405,12 @@
             bindings = <&tabcw>, <&tabccw>;
         };
 
+        encoder_browser_tabs: encoder_browser_tabs {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&browser_tab_next>, <&browser_tab_previous>;
+        };
+
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -472,7 +516,7 @@
             bindings = <
 &kp Q            &kp W            &kp E         &kp R              &kp T        &kp Y        &kp U               &kp I         &kp O            &kp P
 &hrml LEFT_GUI A  &hrml LEFT_ALT S  &hrml LCTRL D  &hrml LEFT_SHIFT F  &kp G        &kp H        &hrmr RIGHT_SHIFT J  &hrmr RCTRL K  &hrmr LEFT_ALT L  &hrmr RIGHT_GUI SEMICOLON
-&kp Z            &kp X            &kp C         &kp V              &kp B        &kp N        &kp M               &kp COMMA     &kp PERIOD       &hmr QUESTION SLASH
+&hrml LEFT_SHIFT Z  &kp X            &kp C         &kp V              &kp B        &kp N        &kp M               &kp COMMA     &kp PERIOD       &hmr QUESTION SLASH
                                                  &lt 1 TAB          &lt 5 ENTER  &lt 3 SPACE  &lt 2 BACKSPACE
             >;
 
@@ -542,7 +586,7 @@
                                        &trans          &trans  &skq LCTRL  &skq RSHFT
             >;
 
-            sensor-bindings = <&encoder_alt_tab &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&encoder_alt_tab &encoder_browser_tabs>;
         };
 
         adjust_mouse_layer {
@@ -553,7 +597,7 @@
                                           &trans        &trans          &mkp LCLK  &mkp RCLK
             >;
 
-            sensor-bindings = <&encoder_alt_tab>, <&encoder_alt_tab>;
+            sensor-bindings = <&encoder_alt_tab>, <&encoder_browser_tabs>;
         };
 
         Base_arrows {
@@ -561,7 +605,7 @@
             bindings = <
 &kp Q            &kp W            &kp E         &kp R              &kp T        &kp Y        &kp U               &kp I         &kp O             &kp P
 &hrml LEFT_GUI A  &hrml LEFT_ALT S  &hrml LCTRL D  &hrml LEFT_SHIFT F  &kp G        &kp H        &hrmr RIGHT_SHIFT J  &hrmr RCTRL K  &hrmr RIGHT_ALT L  &hrmr RIGHT_GUI SEMICOLON
-&kp Z            &kp X            &kp C         &kp V              &kp B        &kp N        &kp M               &kp COMMA     &kp PERIOD        &hmr QUESTION SLASH
+&hrml LEFT_SHIFT Z  &kp X            &kp C         &kp V              &kp B        &kp N        &kp M               &kp COMMA     &kp PERIOD        &hmr QUESTION SLASH
                                                  &lt 1 TAB          &lt 5 ENTER  &lt 3 SPACE  &lt 2 BACKSPACE
             >;
 
