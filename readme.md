@@ -30,8 +30,16 @@ The macros below are defined in [`config/klotz.keymap`](/config/klotz.keymap).
 | `macro_ctrlx` | `Ctrl+X` | `X+C` combo on a base layer |
 | `macro_ctrlc` | `Ctrl+C` | `C+V` combo on a base layer |
 | `macro_ctrlv` | `Ctrl+V` | `V+B` combo on a base layer |
-| `macro_up` | `Ctrl+U` | Physical `M` key on the `num` layer |
-| `macro_down` | `Ctrl+D` | Physical `.` key on the `num` layer |
+| `macro_up` | `Ctrl+U` | Physical `X` key on the `num` layer |
+| `macro_down` | `Ctrl+D` | Physical `V` key on the `num` layer |
+| `omarchy_close` | `Super+Q` | Physical `Q` key on the `nav` layer |
+| `omarchy_menu` | `Super+Space` | Physical `W` key on the `nav` layer |
+| `omarchy_terminal` | `Super+Enter` | Physical `E` key on the `nav` layer |
+| `omarchy_browser` | `Super+Shift+Enter` | Physical `R` key on the `nav` layer |
+| `omarchy_fullscreen` | `Super+F` | Physical `T` key on the `nav` layer |
+| `omarchy_cut` | `Super+X` | Physical `X` key on the `nav` layer |
+| `omarchy_copy` | `Super+C` | Physical `C` key on the `nav` layer |
+| `omarchy_paste` | `Super+V` | Physical `V` key on the `nav` layer |
 
 ### Defined but currently unused
 
@@ -58,7 +66,6 @@ The macros below are defined in [`config/klotz.keymap`](/config/klotz.keymap).
 - the keyboard should now appear as a mass storage device
 - drag'n'drop the `klotz_left-nice_nano_v2-zmk.uf2` file from the archive onto the storage device
 - repeat this process with the right half and the `klotz_right-nice_nano_v2-zmk.uf2` file.
-
 
 
 
